@@ -1,4 +1,4 @@
-#local imports to mak pyspark happy
+#local imports to make pyspark happy
 import os
 import sys
 os.environ['PYSPARK_PYTHON'] = sys.executable
@@ -7,15 +7,12 @@ import findspark
 findspark.init()
 
 #pySpark imports
-from pyspark import SparkFiles
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-from pyspark.ml import Pipeline
 from pyspark.ml.regression import GBTRegressor
-from pyspark.ml.feature import StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer, StandardScaler, PCA
-from pyspark.ml.classification import DecisionTreeClassifier
+from pyspark.ml.feature import StringIndexer, VectorAssembler, StandardScaler, PCA
 from pyspark.ml.evaluation import RegressionEvaluator
-from pyspark.ml.tuning import CrossValidator, ParamGridBuilder, TrainValidationSplit
+from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 
 #importing GPU acceleration libs for pandas (only for local machine use)
 import cudf.pandas
